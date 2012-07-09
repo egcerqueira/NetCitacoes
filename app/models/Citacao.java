@@ -24,7 +24,6 @@ public class Citacao extends Model {
 	@OneToMany
 	public List<Comentario> comentarios;
 	
-	
 	public String toString(){
 		return citacao;
 	}
