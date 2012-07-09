@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+#{set title:'NetCitaçoes, o seu lugar de citações na internet !!' /}
+
+<h1>Citações cadastradas até o momento...</h1>
+
+<div>
+	#{list items:usuarios, as:'usuario'}
+		<h2>${usuario}</h2>
+		#{list items:usuario.citacoes, as:'citacao'}
+			<h4>${citacao.autor}</h4>
+		    ${citacao}
+		    <p><strong>Comentarios:</strong></p>
+		    #{list items:usuario.citacoes.comentarios, as:'comentario'}
+		    	<ul>${comentario}</ul>
+		    #{/list}
+		#{/list}
+	#{/list}
+</div>
