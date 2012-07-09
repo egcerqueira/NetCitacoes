@@ -21,7 +21,7 @@ public class Citacao extends Model {
 	@Required
 	public String autor;
 	
-	@OneToMany
+	@OneToMany(mappedBy="citacao")
 	public List<Comentario> comentarios;
 	
 	public String toString(){

@@ -1,0 +1,9 @@
+#{form @Citacaos.salvar(), method:'POST', id:'citacaoForm'}
+	<fieldset>
+		<p>Usuario:<br><input type="text" name="usuario.nome" value="${usuario?.nome}" /></p>
+		<p>Email:<br><input type="text" name="usuario.email" value="${usuario?.email}"/></p>
+		<p>Citacao:<br><input type="text" name="usuario.citacao.citacao" value="${usuario?.citacao?.citacao}"/></p>
+		<p>Autor:<br><input type="text" name="usuario.citacao.autor" value="${usuario?.citacao?.autor}"/></p>
+		<input type="submit" value="Enviar" />
+	</fieldset>
+#{/form}

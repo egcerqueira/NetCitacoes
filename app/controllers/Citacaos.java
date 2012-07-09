@@ -1,7 +1,8 @@
 package controllers;
 
 import java.util.List;
-
+import play.data.validation.Required;
+import play.data.validation.Valid;
 import play.db.jpa.JPABase;
 import models.Citacao;
 import models.Comentario;
@@ -10,7 +11,19 @@ public class Citacaos extends CRUD {
 
 	public static void listarComentarios(Long id) {
 		Citacao citacao = Citacao.findById(id);
-		List<Comentario> comentarios = citacao.comentarios;
-		render(citacao, comentarios);
+		if(citacao != null){
+			List<Comentario> comentarios = citacao.comentarios;
+			render(citacao, comentarios);
+		}
+		Application.index();
+	}
+	
+	public static void criar(Citacao citacao) {
+		render(citacao);
+	}
+	
+	public static void salvar(@Valid Citacao citacao) {
+		citacao.save();
+		Application.index();
 	}
 }
