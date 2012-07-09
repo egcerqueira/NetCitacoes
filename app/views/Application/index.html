@@ -5,14 +5,13 @@
 
 <div>
 	#{list items:usuarios, as:'usuario'}
-		<h2>${usuario}</h2>
+		<h3>Citações enviadas por ${usuario}:</h3>
+		
 		#{list items:usuario.citacoes, as:'citacao'}
-			<h4>${citacao.autor}</h4>
-		    ${citacao}
-		    <p><strong>Comentarios:</strong></p>
-		    #{list items:usuario.citacoes.comentarios, as:'comentario'}
-		    	<ul>${comentario}</ul>
-		    #{/list}
+			"${citacao}" - ${citacao.autor} 
+			<p><a href="/listarComentarios/${citacao.id}">Ver comentários</a></p>
 		#{/list}
 	#{/list}
+	
+	<a href="@{Citacaos.create()}" >Adicionar</a>
 </div>

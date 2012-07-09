@@ -13,5 +13,10 @@ public class Application extends CRUD {
     	List<Usuario> usuarios = Usuario.findAll();
         render(usuarios);
     }
+    
+    public static void salvar(Citacao citacao) {
+    	citacao.save();
+    	index();
+    }
 
 }

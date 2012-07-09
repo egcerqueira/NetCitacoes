@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title:'NetCitaçoes, o seu lugar de citações na internet !!' /}
+
+<h1>"${citacao}"</h1>
+<h3>${citacao.autor}</h3>
+
+<p>Comentarios:</p>
+
+#{form @Comentarios.salvar(), method:'POST', id:'comentarioForm'}
+	<fieldset>
+		<input type="hidden" name="comentario.citacao.id" value="${citacao.id}" >
+		<p>Nome:<br>
+		<input type="text" name="comentario.nome" value="${comentario?.nome}" /></p>
+		<p>Comentario:<br><input type="text" name="comentario.comentario" value="${comentario?.comentario}"/></p>
+		<input type="submit" value="Enviar" />
+	</fieldset>
+#{/form}
+
+<div>
+	#{list items:comentarios, as:'comentario'}
+		<h4>${comentario.nome}</h4>
+		<span>${comentario.comentario}</span>
+	#{/list}
+</div>
