@@ -3,6 +3,10 @@
 /eclipse/
 .project
 .classpath
+<<<<<<< HEAD
 .classpath
 
 .project
+=======
+.settings
+>>>>>>> 888b49786b7dce6162f4edc6cbce2606c6ce4054
