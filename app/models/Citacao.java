@@ -3,6 +3,7 @@ package models;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import net.sf.oval.constraint.MaxLength;
@@ -20,6 +21,9 @@ public class Citacao extends Model {
 	
 	@Required
 	public String autor;
+	
+	@ManyToOne
+	public Usuario usuario;
 	
 	@OneToMany(mappedBy="citacao")
 	public List<Comentario> comentarios;

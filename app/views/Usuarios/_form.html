@@ -1,0 +1,83 @@
+
+ <div class="row">
+  <div class="label">Nome</div>
+  <div class="field">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <input type="text" name="entity.nome" value="${entity?.nome}"/>
+    
+  </div>
+  <span class="error">${errors.forKey('entity.nome')}</span>
+</div>
+
+
+ <div class="row">
+  <div class="label">Email</div>
+  <div class="field">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <input type="text" name="entity.email" value="${entity?.email}"/>
+    
+  </div>
+  <span class="error">${errors.forKey('entity.email')}</span>
+</div>
+
+
+ <div class="row">
+  <div class="label">Is Admin</div>
+  <div class="field">
+    
+      <input type="checkbox" name="entity.isAdmin"
+        ${entity?.isAdmin ? 'checked':''}
+      />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  <span class="error">${errors.forKey('entity.isAdmin')}</span>
+</div>
+
+
+ <div class="row">
+  <div class="label"></div>
+  <div class="field">
+    
+    
+    
+    
+    
+    
+    
+    
+      <input type="hidden" name="entity.id" value="${entity?.id}"/>
+    
+    
+    
+  </div>
+  <span class="error">${errors.forKey('entity.id')}</span>
+</div>
+
+

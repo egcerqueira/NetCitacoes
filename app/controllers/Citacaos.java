@@ -6,6 +6,7 @@ import play.data.validation.Valid;
 import play.db.jpa.JPABase;
 import models.Citacao;
 import models.Comentario;
+import models.Usuario;
 
 public class Citacaos extends CRUD {
 
@@ -19,7 +20,8 @@ public class Citacaos extends CRUD {
 	}
 	
 	public static void criar(Citacao citacao) {
-		render(citacao);
+		List<Usuario> usuarios = Usuario.findAll();
+		render(citacao,usuarios);
 	}
 	
 	public static void salvar(@Valid Citacao citacao) {

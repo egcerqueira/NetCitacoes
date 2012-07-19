@@ -1,0 +1,54 @@
+#{extends 'main.html' /}
+
+<h2>View Usuario</h2>
+
+<div class="entity">
+
+  
+	<div class="row">
+		<span class="elem">
+			nome:
+		</span>
+		<span class="value">
+      ${entity.nome}
+		</span>
+	</div>
+  
+
+  
+	<div class="row">
+		<span class="elem">
+			email:
+		</span>
+		<span class="value">
+      ${entity.email}
+		</span>
+	</div>
+  
+
+  
+	<div class="row">
+		<span class="elem">
+			isAdmin:
+		</span>
+		<span class="value">
+      ${entity.isAdmin}
+		</span>
+	</div>
+  
+
+  
+	<div class="row">
+		<span class="elem">
+			id:
+		</span>
+		<span class="value">
+      ${entity.id}
+		</span>
+	</div>
+  
+
+</div>
+
+<a href="@{Usuarios.index}">Back</a>
+

@@ -19,7 +19,9 @@ public class Usuario extends Model {
 	@Email
 	public String email;
 	
-	@OneToMany
+	public boolean isAdmin;
+	
+	@OneToMany(mappedBy="usuario")
 	public List<Citacao> citacoes;
 	
 	@Override
