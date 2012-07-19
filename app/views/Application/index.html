@@ -1,12 +1,17 @@
-#{extends 'main.html'/}
+#{extends 'main.html' /}
+#{set title:'NetCitaçoes, o seu lugar de citações na internet !!' /}
 
-<h2>Controllers</h2>
+<h1>Citações cadastradas até o momento...</h1>
 
-
-	<a href="@{Citacaos.index}">Citacaos</a><br/>
-
-	<a href="@{Comentarios.index}">Comentarios</a><br/>
-
-	<a href="@{Usuarios.index}">Usuarios</a><br/>
-
-
+<div>
+	#{list items:usuarios, as:'usuario'}
+		<h3>Citações enviadas por ${usuario}:</h3>
+		
+		#{list items:usuario.citacoes, as:'citacao'}
+			"${citacao}" - ${citacao.autor} 
+			<p><a href="/listarComentarios/${citacao.id}">Ver comentários</a></p>
+		#{/list}
+	#{/list}
+	
+	<a href="@{Citacaos.criar()}" >Adicionar</a>
+</div>

@@ -1,60 +1,31 @@
 package controllers;
 
 import java.util.List;
-import models.Citacao;
-import play.mvc.Controller;
-import play.i18n.Messages;
-import play.data.validation.Validation;
+import play.data.validation.Required;
 import play.data.validation.Valid;
+import play.db.jpa.JPABase;
+import models.Citacao;
+import models.Comentario;
+import models.Usuario;
 
+public class Citacaos extends CRUD {
 
-public class Citacaos extends Controller {
-	public static void index() {
-		List<Citacao> entities = models.Citacao.all().fetch();
-		render(entities);
-	}
-
-	public static void create(Citacao entity) {
-		render(entity);
-	}
-
-	public static void show(java.lang.Long id) {
-    Citacao entity = Citacao.findById(id);
-		render(entity);
-	}
-
-	public static void edit(java.lang.Long id) {
-    Citacao entity = Citacao.findById(id);
-		render(entity);
-	}
-
-	public static void delete(java.lang.Long id) {
-    Citacao entity = Citacao.findById(id);
-    entity.delete();
-		index();
+	public static void listarComentarios(Long id) {
+		Citacao citacao = Citacao.findById(id);
+		if(citacao != null){
+			List<Comentario> comentarios = citacao.comentarios;
+			render(citacao, comentarios);
+		}
+		Application.index();
 	}
 	
-	public static void save(@Valid Citacao entity) {
-		if (validation.hasErrors()) {
-			flash.error(Messages.get("scaffold.validation"));
-			render("@create", entity);
-		}
-    entity.save();
-		flash.success(Messages.get("scaffold.created", "Citacao"));
-		index();
+	public static void criar(Citacao citacao) {
+		List<Usuario> usuarios = Usuario.findAll();
+		render(citacao,usuarios);
 	}
-
-	public static void update(@Valid Citacao entity) {
-		if (validation.hasErrors()) {
-			flash.error(Messages.get("scaffold.validation"));
-			render("@edit", entity);
-		}
-		
-      		entity = entity.merge();
-		
-		entity.save();
-		flash.success(Messages.get("scaffold.updated", "Citacao"));
-		index();
+	
+	public static void salvar(@Valid Citacao citacao) {
+		citacao.save();
+		Application.index();
 	}
-
 }
