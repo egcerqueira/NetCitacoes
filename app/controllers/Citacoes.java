@@ -8,7 +8,7 @@ import play.data.validation.Validation;
 import play.data.validation.Valid;
 
 
-public class Citacaos extends Controller {
+public class Citacoes extends Controller {
 	public static void index() {
 		List<Citacao> entities = models.Citacao.all().fetch();
 		render(entities);

@@ -3,11 +3,13 @@ package controllers;
 import java.util.List;
 import models.Usuario;
 import play.mvc.Controller;
+import play.mvc.With;
 import play.i18n.Messages;
 import play.data.validation.Validation;
 import play.data.validation.Valid;
 
-
+@With(Secure.class)
+@Check("admin")
 public class Usuarios extends Controller {
 	public static void index() {
 		List<Usuario> entities = models.Usuario.all().fetch();

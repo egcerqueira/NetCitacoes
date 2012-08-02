@@ -21,6 +21,8 @@ public class Usuario extends Model {
 	
 	public boolean isAdmin;
 	
+	public String senha;
+	
 	@OneToMany(mappedBy="usuario")
 	public List<Citacao> citacoes;
 	
