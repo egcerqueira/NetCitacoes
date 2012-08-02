@@ -1,0 +1,98 @@
+
+ <div class="row">
+  <div class="label">Citacao</div>
+  <div class="field">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <input type="text" name="entity.citacao" value="${entity?.citacao}"/>
+    
+  </div>
+  <span class="error">${errors.forKey('entity.citacao')}</span>
+</div>
+
+
+ <div class="row">
+  <div class="label">Autor</div>
+  <div class="field">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <input type="text" name="entity.autor" value="${entity?.autor}"/>
+    
+  </div>
+  <span class="error">${errors.forKey('entity.autor')}</span>
+</div>
+
+
+ <div class="row">
+  <div class="label">Usuario</div>
+  <div class="field">
+    
+    
+    
+    
+      
+      
+        <select name="entity.usuario.id">
+              
+                      <option value="">(None)</option>              
+              
+        %{ models.Usuario.all().fetch().sort{ it.toString() }.each() { }%
+          
+          %{
+            selected = false;
+            if (entity?.usuario?.id == it.id) {
+              selected = true
+            }
+          }%
+          <option value="${it?.id}" ${selected ? 'selected'.raw() : ''}>${it}</option>
+        %{ } }%
+        </select>
+      
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  <span class="error">${errors.forKey('entity.usuario')}</span>
+</div>
+
+
+ <div class="row">
+  <div class="label"></div>
+  <div class="field">
+    
+    
+    
+    
+    
+    
+    
+    
+      <input type="hidden" name="entity.id" value="${entity?.id}"/>
+    
+    
+    
+  </div>
+  <span class="error">${errors.forKey('entity.id')}</span>
+</div>
+
+

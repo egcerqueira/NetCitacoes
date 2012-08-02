@@ -1,50 +1,50 @@
 package controllers;
 
 import java.util.List;
-import models.Usuario;
+import models.Citacao;
 import play.mvc.Controller;
 import play.i18n.Messages;
 import play.data.validation.Validation;
 import play.data.validation.Valid;
 
 
-public class Usuarios extends Controller {
+public class Citacaos extends Controller {
 	public static void index() {
-		List<Usuario> entities = models.Usuario.all().fetch();
+		List<Citacao> entities = models.Citacao.all().fetch();
 		render(entities);
 	}
 
-	public static void create(Usuario entity) {
+	public static void create(Citacao entity) {
 		render(entity);
 	}
 
 	public static void show(java.lang.Long id) {
-    Usuario entity = Usuario.findById(id);
+    Citacao entity = Citacao.findById(id);
 		render(entity);
 	}
 
 	public static void edit(java.lang.Long id) {
-    Usuario entity = Usuario.findById(id);
+    Citacao entity = Citacao.findById(id);
 		render(entity);
 	}
 
 	public static void delete(java.lang.Long id) {
-    Usuario entity = Usuario.findById(id);
+    Citacao entity = Citacao.findById(id);
     entity.delete();
 		index();
 	}
 	
-	public static void save(@Valid Usuario entity) {
+	public static void save(@Valid Citacao entity) {
 		if (validation.hasErrors()) {
 			flash.error(Messages.get("scaffold.validation"));
 			render("@create", entity);
 		}
     entity.save();
-		flash.success(Messages.get("scaffold.created", "Usuario"));
+		flash.success(Messages.get("scaffold.created", "Citacao"));
 		index();
 	}
 
-	public static void update(@Valid Usuario entity) {
+	public static void update(@Valid Citacao entity) {
 		if (validation.hasErrors()) {
 			flash.error(Messages.get("scaffold.validation"));
 			render("@edit", entity);
@@ -53,7 +53,7 @@ public class Usuarios extends Controller {
       		entity = entity.merge();
 		
 		entity.save();
-		flash.success(Messages.get("scaffold.updated", "Usuario"));
+		flash.success(Messages.get("scaffold.updated", "Citacao"));
 		index();
 	}
 

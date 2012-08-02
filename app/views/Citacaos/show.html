@@ -1,16 +1,16 @@
 #{extends 'main.html' /}
 
-<h2>View Usuario</h2>
+<h2>View Citacao</h2>
 
 <div class="entity">
 
   
 	<div class="row">
 		<span class="elem">
-			nome:
+			citacao:
 		</span>
 		<span class="value">
-      ${entity.nome}
+      ${entity.citacao}
 		</span>
 	</div>
   
@@ -18,10 +18,10 @@
   
 	<div class="row">
 		<span class="elem">
-			email:
+			autor:
 		</span>
 		<span class="value">
-      ${entity.email}
+      ${entity.autor}
 		</span>
 	</div>
   
@@ -29,21 +29,10 @@
   
 	<div class="row">
 		<span class="elem">
-			isAdmin:
+			usuario:
 		</span>
 		<span class="value">
-      ${entity.isAdmin}
-		</span>
-	</div>
-  
-
-  
-	<div class="row">
-		<span class="elem">
-			senha:
-		</span>
-		<span class="value">
-      ${entity.senha}
+      ${entity.usuario}
 		</span>
 	</div>
   
@@ -61,5 +50,5 @@
 
 </div>
 
-<a href="@{Usuarios.index}">Back</a>
+<a href="@{Citacaos.index}">Back</a>
 
