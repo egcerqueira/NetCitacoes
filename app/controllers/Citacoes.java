@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.List;
 import models.Citacao;
+import play.mvc.Before;
 import play.mvc.Controller;
 import play.i18n.Messages;
 import play.data.validation.Validation;
@@ -9,9 +10,16 @@ import play.data.validation.Valid;
 
 
 public class Citacoes extends Controller {
+
+
+	@Before
+	static void user() {
+	 renderArgs.put("user", Security.connected());
+	}
+
 	public static void index() {
 		List<Citacao> entities = models.Citacao.all().fetch();
-		render(entities);
+		render(entities,Security.connected());
 	}
 
 	public static void create(Citacao entity) {
@@ -33,7 +41,7 @@ public class Citacoes extends Controller {
     entity.delete();
 		index();
 	}
-	
+
 	public static void save(@Valid Citacao entity) {
 		if (validation.hasErrors()) {
 			flash.error(Messages.get("scaffold.validation"));
@@ -49,9 +57,9 @@ public class Citacoes extends Controller {
 			flash.error(Messages.get("scaffold.validation"));
 			render("@edit", entity);
 		}
-		
+
       		entity = entity.merge();
-		
+
 		entity.save();
 		flash.success(Messages.get("scaffold.updated", "Citacao"));
 		index();

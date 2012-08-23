@@ -1,28 +1,15 @@
 #{extends 'main.html' /}
 
-<h2>Citações</h2>
+<h2>Cita&ccedil;&otilde;es</h2>
 
 <table class="entity Citacao">
 	<thead>
 		<tr>
 			<th><!-- actions --></th>
-			
-	        
 				<th>Citacao</th>
-	        
-			
-	        
 				<th>Autor</th>
-	        
-			
-	        
 				<th>Usuario</th>
-	        
-			
-	        
 				<th>Id</th>
-	        
-			
 		</tr>
 	</thead>
 	<tbody>
@@ -33,23 +20,10 @@
 				<a href="@{Citacoes.edit(entity.id)}">Edit</a>&nbsp;
 				<a href="@{Citacoes.delete(entity.id)}" onclick="if (!confirm('Are you sure you want to delete this record?')) return false;">Delete</a>
 			</td>
-			
-        
 					<td>${entity.citacao}</td>
-        
-			
-        
 					<td>${entity.autor}</td>
-        
-			
-        
 					<td>${entity.usuario}</td>
-        
-			
-        
 					<td>${entity.id}</td>
-        
-			
 		</tr>
 	#{/list}
 	</tbody>

@@ -2,13 +2,12 @@
 
 <h2>Controllers</h2>
 
+	<a href="@{Citacoes.index}">Cita&ccedil;&otilde;es</a><br/>
 
-	<a href="@{Citacoes.index}">Citacoes</a><br/>
-
-	<a href="@{Comentarios.index}">Comentarios</a><br/>
+	<a href="@{Comentarios.index}">Coment&aacute;rios</a><br/>
 
 	#{secure.check "admin"}
-	<a href="@{Usuarios.index}">Usuarios</a><br/>
+	<a href="@{Usuarios.index}">Usu&aacute;rios</a><br/>
 	#{/secure.check}
 
 #{list citacoes, as:'citacao'}

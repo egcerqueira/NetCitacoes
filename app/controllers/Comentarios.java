@@ -1,14 +1,22 @@
 package controllers;
 
 import java.util.List;
+
 import models.Comentario;
-import play.mvc.Controller;
-import play.i18n.Messages;
-import play.data.validation.Validation;
 import play.data.validation.Valid;
+import play.i18n.Messages;
+import play.mvc.Before;
+import play.mvc.Controller;
 
 
 public class Comentarios extends Controller {
+
+
+	@Before
+	static void user() {
+	 renderArgs.put("user", Security.connected());
+	}
+
 	public static void index() {
 		List<Comentario> entities = models.Comentario.all().fetch();
 		render(entities);
@@ -33,7 +41,7 @@ public class Comentarios extends Controller {
     entity.delete();
 		index();
 	}
-	
+
 	public static void save(@Valid Comentario entity) {
 		if (validation.hasErrors()) {
 			flash.error(Messages.get("scaffold.validation"));
@@ -49,9 +57,9 @@ public class Comentarios extends Controller {
 			flash.error(Messages.get("scaffold.validation"));
 			render("@edit", entity);
 		}
-		
+
       		entity = entity.merge();
-		
+
 		entity.save();
 		flash.success(Messages.get("scaffold.updated", "Comentario"));
 		index();

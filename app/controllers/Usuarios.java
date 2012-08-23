@@ -1,14 +1,23 @@
 package controllers;
 
 import java.util.List;
+
 import models.Usuario;
-import play.mvc.Controller;
-import play.i18n.Messages;
-import play.data.validation.Validation;
 import play.data.validation.Valid;
+import play.i18n.Messages;
+import play.mvc.Before;
+import play.mvc.Controller;
+import play.mvc.With;
 
-
+@With(Secure.class)
 public class Usuarios extends Controller {
+
+
+	@Before
+	static void user() {
+	 renderArgs.put("user", Security.connected());
+	}
+
 	public static void index() {
 		List<Usuario> entities = models.Usuario.all().fetch();
 		render(entities);
@@ -33,7 +42,7 @@ public class Usuarios extends Controller {
     entity.delete();
 		index();
 	}
-	
+
 	public static void save(@Valid Usuario entity) {
 		if (validation.hasErrors()) {
 			flash.error(Messages.get("scaffold.validation"));
@@ -49,9 +58,9 @@ public class Usuarios extends Controller {
 			flash.error(Messages.get("scaffold.validation"));
 			render("@edit", entity);
 		}
-		
+
       		entity = entity.merge();
-		
+
 		entity.save();
 		flash.success(Messages.get("scaffold.updated", "Usuario"));
 		index();

@@ -13,8 +13,15 @@
         #{get 'moreScripts' /}
     </head>
     <body>
-		<div id="header"> 
-		     <a class="title" href="@{Application.index}">~ NetCitacoes ~</a>
+		<div id="header">
+		     <a class="title" href="@{Application.index}">~ NetCita&ccedil;&otilde;es ~</a>
+			#{if user }
+				 Bem-vindo ${user}
+				 <a href="@{secure.logout}">[ Sair ]</a>
+			#{/if}
+			#{else}
+				<a href="@{secure.login}">[ Entrar ]</a>
+			#{/else}
 		</div>
 		<div id="content-container">
       <div id="menu">
@@ -30,22 +37,10 @@
 		                <strong>${play.i18n.Messages.get(flash.success)}</strong>
 		            </div>
 		        #{/if}
-				
+
 		        #{doLayout /}
 		    </div>
 		</div>
-		<div id="footer">
-			<script type="text/javascript"> 
-			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-			</script>
-			<script type="text/javascript">
-			//TODO: add Google Analytics tracking ID and uncomment
-			//try {
-			//var pageTracker = _gat._getTracker("YOUR_TRACKING_ID");
-			//pageTracker._trackPageview();
-			//} catch(err) {}
-			</script>
-		</div>
+
     </body>
 </html>
