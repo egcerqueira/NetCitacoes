@@ -8,9 +8,7 @@ import play.i18n.Messages;
 import play.data.validation.Validation;
 import play.data.validation.Valid;
 
-
-public class Citacoes extends Controller {
-
+public class Citacaos extends Controller {
 
 	@Before
 	static void user() {
