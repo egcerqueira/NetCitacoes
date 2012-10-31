@@ -7,6 +7,7 @@ import javax.persistence.OneToMany;
 
 import play.data.validation.Email;
 import play.data.validation.Required;
+import play.db.jpa.GenericModel;
 import play.db.jpa.Model;
 
 @Entity
