@@ -14,7 +14,6 @@ public class Comentarios extends Controller {
 
 	@Before
 	static void user() {
-	 renderArgs.put("user", Security.connected());
 	}
 
 	public static void index() {

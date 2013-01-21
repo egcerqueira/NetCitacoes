@@ -15,32 +15,25 @@
     <body>
 		<div id="header">
 		     <a class="title" href="@{Application.index}">~ NetCita&ccedil;&otilde;es ~</a>
-			#{if user }
-				 Bem-vindo ${user}
-				 <a href="@{secure.logout}">[ Sair ]</a>
-			#{/if}
-			#{else}
-				<a href="@{secure.login}">[ Entrar ]</a>
-			#{/else}
 		</div>
 		<div id="content-container">
-      <div id="menu">
-              </div>
+		    <div id="menu"></div>
 			<div id="content">
-		        #{if flash.error}
-		            <div class="fError">
-		                <strong>${play.i18n.Messages.get(flash.error)}</strong>
-		            </div>
-		        #{/if}
-		        #{if flash.success}
-		            <div class="fSuccess">
-		                <strong>${play.i18n.Messages.get(flash.success)}</strong>
-		            </div>
-		        #{/if}
-
-		        #{doLayout /}
-		    </div>
+			       #{if flash.error}
+			           <div class="fError">
+			               <strong>${play.i18n.Messages.get(flash.error)}</strong>
+			           </div>
+			       #{/if}
+			       #{if flash.success}
+			           <div class="fSuccess">
+			               <strong>${play.i18n.Messages.get(flash.success)}</strong>
+			           </div>
+			       #{/if}
+			
+			       #{doLayout /}
+			   </div>
 		</div>
+		
 
     </body>
 </html>

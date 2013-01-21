@@ -5,4 +5,4 @@ require:
 
     - play -> scaffold head
     
-    - play -> secure
+    - play -> securesocial 0.2.6

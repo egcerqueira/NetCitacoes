@@ -12,12 +12,11 @@ public class Citacaos extends Controller {
 
 	@Before
 	static void user() {
-	 renderArgs.put("user", Security.connected());
 	}
 
 	public static void index() {
 		List<Citacao> entities = models.Citacao.all().fetch();
-		render(entities,Security.connected());
+		render(entities);
 	}
 
 	public static void create(Citacao entity) {

@@ -6,9 +6,7 @@
 
 	<a href="@{Comentarios.index}">Coment&aacute;rios</a><br/>
 
-	#{secure.check "admin"}
 	<a href="@{Usuarios.index}">Usu&aacute;rios</a><br/>
-	#{/secure.check}
 
 #{list citacoes, as:'citacao'}
 	${citacao.descricao}

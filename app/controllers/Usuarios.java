@@ -8,14 +8,13 @@ import play.i18n.Messages;
 import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
+import controllers.securesocial.SecureSocial;
 
-@With(Secure.class)
+@With(SecureSocial.class)
 public class Usuarios extends Controller {
-
 
 	@Before
 	static void user() {
-	 renderArgs.put("user", Security.connected());
 	}
 
 	public static void index() {
