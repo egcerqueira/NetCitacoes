@@ -1,0 +1,45 @@
+
+
+psql -h  <HOSTNAME> -U <USER> -d <DATABASE> -p <PORTA> <  cria-banco.sql
+
+exemplo:
+
+
+fb@cascao ~/workspace-play/NetCitacoes/sql [17:42:25]> psql -h compute-1.amazonaws.com -U jihxebfy -d dvju -p 5432  <  cria-banco.sql
+Senha para usuário jihxebfy:
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+CREATE TABLE
+CREATE TABLE
+CREATE SEQUENCE
+CREATE TABLE
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+ setval
+--------
+     11
+(1 registro)
+
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+
+
+
